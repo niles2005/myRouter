@@ -64,12 +64,12 @@ public class CarRouteLine extends RouteLine {
 		else {
 	
 			strBuff.append("{");
-			strBuff.append("\"routeType\":\"" + RouterUtil.getRouteTypeName(m_routeType) + "\",");
+			strBuff.append("\"routeType\":\"" + RouteUtil.getRouteTypeName(m_routeType) + "\",");
 	
 			strBuff.append("\"totallen\":\"");
-			strBuff.append(RouterUtil.formatMeterLength(m_routeTotalLen) + "\",");
+			strBuff.append(RouteUtil.formatMeterLength(m_routeTotalLen) + "\",");
 			strBuff.append("\"totaltime\":\"");
-			strBuff.append(RouterUtil.formatSecondTime(m_routeTotalTime) + "\",");
+			strBuff.append(RouteUtil.formatSecondTime(m_routeTotalTime) + "\",");
 			
 			strBuff.append("\"segments\":");
 			strBuff.append("[");

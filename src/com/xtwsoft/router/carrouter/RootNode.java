@@ -63,7 +63,7 @@ public class RootNode extends WorkNode {
 	
 	public WorkNode popFirstNode() {
 		if(m_openNextNode != null) {
-			WorkNode firstNode = m_openNextNode;//(WorkNode)openNodes.remove(openNodes.size() - 1);
+			WorkNode firstNode = m_openNextNode;
 			m_openNextNode = firstNode.m_openNextNode;
 			if(m_openNextNode != null) {
 				m_openNextNode.m_openPrevNode = this;

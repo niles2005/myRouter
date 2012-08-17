@@ -24,9 +24,9 @@ public class WorkNode {
 	
 	protected int getWeight2WorkNode(WorkNode workNode,int routeType) {
 		double len = EarthPosLengthUtil.getMeterLength(m_roadEnd.getLat(), m_roadEnd.getLon(), workNode.m_roadEnd.getLat(), workNode.m_roadEnd.getLon());
-		if(routeType == RouterUtil.RouteTypeTime) {
+		if(routeType == RouteUtil.RouteTypeTime) {
 			//use max speed: 120KM/H
-			int time = RouterUtil.calRouteTime(len, 120);
+			int time = RouteUtil.calRouteTime(len, 120);
 			return time;
 		} else {
 			return (int)(len + 0.5);

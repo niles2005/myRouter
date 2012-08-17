@@ -43,7 +43,7 @@ public class CarRoad extends Node {
 	            IOUtil.writeInt(baos, lon);
 	        }
 	        m_roadLength = (int)(EarthPosLengthUtil.getLineLength(ePosList) + 0.5);
-	        m_roadTime = RouterUtil.calRouteTime(m_roadLength, speed);
+	        m_roadTime = RouteUtil.calRouteTime(m_roadLength, speed);
 	        this.m_bounds = bounds;
 	        m_posBytes = baos.toByteArray();
 		} catch(Exception ex) {

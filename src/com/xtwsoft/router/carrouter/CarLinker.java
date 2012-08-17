@@ -25,9 +25,9 @@ public class CarLinker {
 	}
 	
 	public int getWeight(int routeType) {
-		if(routeType == RouterUtil.RouteTypeLength) {
+		if(routeType == RouteUtil.RouteTypeLength) {
 			return m_linkLen;
-		} else if(routeType == RouterUtil.RouteTypeTime) {
+		} else if(routeType == RouteUtil.RouteTypeTime) {
 			return m_linkTime;
 		}
 		return 0;

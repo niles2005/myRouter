@@ -74,8 +74,8 @@ public class CarRouteSegment extends RouteSegment {
 		String roadName = this.m_roadName;
 		String part1 = null;
 		
-		String ss = RouterUtil.formatMeterLength(m_totalLen);
-		if(RouterUtil.UnknownRoadName.equals(roadName) || roadName.length() == 0) {
+		String ss = RouteUtil.formatMeterLength(m_totalLen);
+		if(RouteUtil.UnknownRoadName.equals(roadName) || roadName.length() == 0) {
 			part1 =  "沿着当前路向前" + ss;
 		} else {
 			part1 =  "沿着<B>" + roadName + "</B>向前" + ss;
@@ -87,9 +87,9 @@ public class CarRouteSegment extends RouteSegment {
 			EarthPos p1 = m_posList.get(m_posList.size() - 2);
 			EarthPos p2 = m_posList.get(m_posList.size() - 1);
 			EarthPos p3 = nextSegment.m_posList.get(1);
-			String angleInfo = RouterUtil.crateRouteAnage(p1,p2,p3);
+			String angleInfo = RouteUtil.crateRouteAnage(p1,p2,p3);
 
-			if(RouterUtil.UnknownRoadName.equals(nextRoadName)) {
+			if(RouteUtil.UnknownRoadName.equals(nextRoadName)) {
 				segmentName =  part1 + "处" + angleInfo;
 			} else if(nextRoadName.length() == 0) {
 				segmentName =  part1 + "处" + angleInfo;

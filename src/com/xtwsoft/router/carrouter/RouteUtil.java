@@ -12,7 +12,7 @@ import com.xtwsoft.utils.EarthPos;
 import com.xtwsoft.utils.GlobalPos;
 import com.xtwsoft.utils.gis.AngleUtil;
 
-public class RouterUtil {
+public class RouteUtil {
 	public static final int RouteTypeLength = 0;
 	public static final int RouteTypeTime = 1;
 	public static String getRouteTypeName(int routeType) {
