@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-26 ÏÂÎç10:38:08
+ * @version create timeï¼š2011-9-26 ä¸‹åˆ10:38:08
  */
 package com.xtwsoft.router.carrouter.build;
 
@@ -37,7 +37,7 @@ public class EncodeDataFile {
 		try {
 			XtwFileReader reader = new XtwFileReader(file,"UTF8");
 			String line = reader.readLine();
-			if (line.charAt(0) == 65279) {// UTF8 ÎÄ¼ş±êÖ¾FF FE FF FE
+			if (line.charAt(0) == 65279) {// UTF8 æ–‡ä»¶æ ‡å¿—FF FE FF FE
 				line = line.substring(1);
 			}
 			while (line != null) {
@@ -90,7 +90,7 @@ public class EncodeDataFile {
 				int orient = 3;
 				if (roadInfo.length() >= 3) {
 					orient = Integer.parseInt(roadInfo.substring(2));
-					if (orient == 0) {// ´Ë´¦ÓĞÎÊÌâ£¬ĞèÑéÖ¤
+					if (orient == 0) {// æ­¤å¤„æœ‰é—®é¢˜ï¼Œéœ€éªŒè¯
 						orient = 3;
 					}
 				}
@@ -127,7 +127,7 @@ public class EncodeDataFile {
 
 	private String validName(String name) {
 		String[] items = name.split("!");
-		//È¡µÚÒ»¸öÂ·Ãû
+		//å–ç¬¬ä¸€ä¸ªè·¯å
 		for (int i = 0; i < items.length; i++) {
 			String ss = items[i];
 			if (ss.startsWith("@")) {
@@ -136,7 +136,7 @@ public class EncodeDataFile {
 			}
 		}
 
-		//ÔÚÎ´È¡µÃ´¿Â·ÃûµÄÇé¿öÏÂ£¬È¡µÚÒ»¸öÂ·ºÅ
+		//åœ¨æœªå–å¾—çº¯è·¯åçš„æƒ…å†µä¸‹ï¼Œå–ç¬¬ä¸€ä¸ªè·¯å·
 		for (int i = 0; i < items.length; i++) {
 			String ss = items[i];
 			if (ss.startsWith("@")) {
@@ -170,11 +170,11 @@ public class EncodeDataFile {
 			str = str.substring(0,pos);
 		}
 		if(str.startsWith("G")) {
-			str = "¹úµÀ" + str.substring(1);
+			str = "å›½é“" + str.substring(1);
 		} else if(str.startsWith("S")) {
-			str = "Ê¡µÀ" + str.substring(1);
+			str = "çœé“" + str.substring(1);
 		} else if(str.startsWith("X")) {
-			str = "ÏØµÀ" + str.substring(1);
+			str = "å¿é“" + str.substring(1);
 		}
 		return str;
 	}

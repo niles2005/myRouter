@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2012-8-14 ÏÂÎç10:53:09
+ * @version create timeï¼š2012-8-14 ä¸‹åˆ10:53:09
  */
 package com.xtwsoft.router.carrouter;
 
@@ -88,10 +88,10 @@ public class CarRouteLine extends RouteLine {
 				if(i < m_segmentList.size() - 1) {
 					segment2 = (CarRouteSegment)m_segmentList.get(i + 1);
 				}
-				strBuff.append(segment1.getSegmentName(segment2));//¶ÔÓÚchromeä¯ÀÀÆ÷£¬´Ë´ÎĞè°Ñºº×Ö×ª³É±àÂë¸ñÊ½
+				strBuff.append(segment1.getSegmentName(segment2));
 				strBuff.append("\",");
 	//			strBuff.append("\"len\":");
-	//			strBuff.append("\"xx¹«Àï\",");
+	//			strBuff.append("\"xxå…¬é‡Œ\",");
 	//			strBuff.append("\"time\":");
 	//			strBuff.append("\"\",");
 				strBuff.append("\"points\":\"");

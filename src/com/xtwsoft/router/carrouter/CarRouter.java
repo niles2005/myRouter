@@ -38,12 +38,12 @@ public class CarRouter {
 			
 			StartNode startNode = (StartNode)CarRGC.getInstance().createEndNode(startEPos,true);
 			if(startNode == null) {
-				routeResult.setError(CharUtil.toUnicode("²»ÄÜ¶¨Î»µ¼º½Æğµã£¡"));
+				routeResult.setError(CharUtil.toUnicode("ä¸èƒ½å®šä½å¯¼èˆªèµ·ç‚¹ï¼"));
 				return routeResult;
 			}
 			StopNode stopNode = (StopNode)CarRGC.getInstance().createEndNode(endEPos,false);
 			if(stopNode == null) {
-				routeResult.setError(CharUtil.toUnicode("²»ÄÜ¶¨Î»µ¼º½ÖÕµã£¡"));
+				routeResult.setError(CharUtil.toUnicode("ä¸èƒ½å®šä½å¯¼èˆªç»ˆç‚¹ï¼"));
 				return routeResult;
 			}
 			
@@ -64,16 +64,16 @@ public class CarRouter {
 				routeResult.setError(info);
 				return routeResult;
 			}
-			//¾­¹ı¶¨Î»´¦Àí£¬Ô­À´²»ÏàÍ¬µÄÊ×Î²µã¿ÉÄÜ±ä³ÉÏàÍ¬¡£ËùÒÔ´Ë´Î¼ÓÉÏÅĞ¶Ï
+			//ç»è¿‡å®šä½å¤„ç†ï¼ŒåŸæ¥ä¸ç›¸åŒçš„é¦–å°¾ç‚¹å¯èƒ½å˜æˆç›¸åŒã€‚æ‰€ä»¥æ­¤æ¬¡åŠ ä¸Šåˆ¤æ–­
 			if(startNode.m_roadEnd.equals(stopNode.m_roadEnd)) {
-				routeResult.setError(CharUtil.toUnicode("µ¼º½ÆğÖ¹µãÏàÍ¬£¡"));//´Ë´¦¿ÉÄÜĞè¸ÄÎªÊ×Î»µãÁ¬Ïß
+				routeResult.setError(CharUtil.toUnicode("å¯¼èˆªèµ·æ­¢ç‚¹ç›¸åŒï¼"));//æ­¤å¤„å¯èƒ½éœ€æ”¹ä¸ºé¦–ä½ç‚¹è¿çº¿
 				return routeResult;
 			}
 			
-			//ÅĞ¶ÏÊ×Î²µãÊÇ·ñÔÚÒ»ÌõÏßÉÏ»òÖØµşµÈÇé¿ö
+			//åˆ¤æ–­é¦–å°¾ç‚¹æ˜¯å¦åœ¨ä¸€æ¡çº¿ä¸Šæˆ–é‡å ç­‰æƒ…å†µ
 			startNode.setStopNode(stopNode,routeType);
 			
-			//¼ÓÈë¿ªÊ¼½Úµãµ½openÁ´±í
+			//åŠ å…¥å¼€å§‹èŠ‚ç‚¹åˆ°opené“¾è¡¨
 			rootNode.addOpenLink(startNode);
 			
 			WorkNode currNode = null;
@@ -90,7 +90,7 @@ public class CarRouter {
 			}
 			
 			
-			//Çå¿Õ£¬¼Ó¿ìÄÚ´æÊÍ·Å
+			//æ¸…ç©ºï¼ŒåŠ å¿«å†…å­˜é‡Šæ”¾
 			posNodeHash.clear();
 		} catch(Exception ex) {
 			ex.printStackTrace();
@@ -101,7 +101,7 @@ public class CarRouter {
 	}
 	
 	private RouteLine buildRouteLine(WorkNode destNode,int routeType) {
-		//´ÓÖÕµã»ØËİËùÓĞ¾­¹ıµÄµã
+		//ä»ç»ˆç‚¹å›æº¯æ‰€æœ‰ç»è¿‡çš„ç‚¹
 		LinkedList workNodeList = new LinkedList();
 
 		WorkNode usedNode = destNode;

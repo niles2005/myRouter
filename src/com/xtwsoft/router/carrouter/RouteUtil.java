@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-4 ÏÂÎç05:59:13
+ * @version create timeï¼š2011-9-4 ä¸‹åˆ05:59:13
  */
 package com.xtwsoft.router.carrouter;
 
@@ -28,19 +28,16 @@ public class RouteUtil {
 	//speed    km/h 
 	//return: time second
 	public static int calRouteTime(double roadMeterLen,int speed) {
-		int roadTime = (int)(0.001 * roadMeterLen * 3600 / speed);  //¹«Àï / Ê±ËÙ	
+		int roadTime = (int)(0.001 * roadMeterLen * 3600 / speed);  //å…¬é‡Œ / æ—¶é€Ÿ
 		return roadTime;
 	}
 
-	
-	
 	public static String getCarLengthString(int len) {
-		return len + "Ã×";
+		return len + "ç±³";
 	}
 
-	
 	public static String getWalkLengthString(int len) {
-		return len + "Ã×";
+		return len + "ç±³";
 	}
 	
 	public static String getWalkTimeString(int second) {
@@ -57,43 +54,43 @@ public class RouteUtil {
 		}
 		if(hour > 0) {
 			if(minute <= 0) {
-				return hour + "Ğ¡Ê±";
+				return hour + "å°æ—¶";
 			} else {
-				return hour + "Ğ¡Ê±" + minute + "·ÖÖÓ";
+				return hour + "å°æ—¶" + minute + "åˆ†é’Ÿ";
 			}
 		} else if(minute > 0) {
-			return minute + "·ÖÖÓ";
+			return minute + "åˆ†é’Ÿ";
 		} else {
-			return "1·ÖÖÓ";
+			return "1åˆ†é’Ÿ";
 		}
 	}
 
 	public static String formatMeterLength(int meterLen) {
 		String ss = null;
 		if(meterLen >= 1000) {
-			ss = myformat.format(1.0 * meterLen / 1000) + "¹«Àï";
+			ss = myformat.format(1.0 * meterLen / 1000) + "å…¬é‡Œ";
 		} else {
-			ss = meterLen + "Ã×";
+			ss = meterLen + "ç±³";
 		}
 		return ss;
 	}
 	
-	//³ÇÊĞµÀÂ·Ò»°ã10¹«Àï/25·ÖÖÓ
+	//åŸå¸‚é“è·¯ä¸€èˆ¬10å…¬é‡Œ/25åˆ†é’Ÿ
 	public static String formatSecondTime(int secondTime) {
 		
 		int hours = secondTime / 3600;
 		int releaseMin = (secondTime % 3600) / 60;
 		if(hours > 0) {
 			if(releaseMin != 0) {
-				return "" + hours + "Ğ¡Ê±" + releaseMin + "·ÖÖÓ";
+				return "" + hours + "å°æ—¶" + releaseMin + "åˆ†é’Ÿ";
 			} else {
-				return "" + hours + "Ğ¡Ê±";
+				return "" + hours + "å°æ—¶";
 			}
 		} else {
 			if(releaseMin == 0) {
 				releaseMin = 1;
 			}
-			return "" + releaseMin + "·ÖÖÓ";
+			return "" + releaseMin + "åˆ†é’Ÿ";
 		}
 	}
 	
@@ -102,12 +99,12 @@ public class RouteUtil {
 		System.err.println(getWalkTimeString(999999999));
 	}
 	
-	public static String UnknownRoadName = "Î´ÖªÂ·¶Î";
+	public static String UnknownRoadName = "æœªçŸ¥è·¯æ®µ";
 
 	
 	protected String m_angleInfo = null;
 	
-	//lastRoadRSecondEndGPos £º ÉÏÒ»ÌõÂ·µÄµ¹ÊıµÚ¶ş¸öµã
+	//lastRoadRSecondEndGPos ï¼š ä¸Šä¸€æ¡è·¯çš„å€’æ•°ç¬¬äºŒä¸ªç‚¹
 	public static String crateRouteAnage(EarthPos lastRoadRSecondEndEPos,EarthPos roadFirstEPos,EarthPos roadSecondEPos) {
 		GlobalPos lastRoadRSecondEndGPos = lastRoadRSecondEndEPos.convert2GlobalPos();
 		GlobalPos roadFirstGPos = roadFirstEPos.convert2GlobalPos();

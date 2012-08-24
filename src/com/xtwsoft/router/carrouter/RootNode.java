@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-8 ÏÂÎç03:11:09
+ * @version create timeï¼š2011-9-8 ä¸‹åˆ03:11:09
  */
 package com.xtwsoft.router.carrouter;
 
@@ -15,7 +15,7 @@ public class RootNode extends WorkNode {
 	}
 	
 	public void addOpenLink(WorkNode workNode) {
-		//workNode ¿ÉÄÜÒÑ¾­ÔÚLinkÁ´±íÖĞ£¬Èç¹ûÔÚ£¬ÏÈÒÆ³ı¡£
+		//workNode å¯èƒ½å·²ç»åœ¨Linké“¾è¡¨ä¸­ï¼Œå¦‚æœåœ¨ï¼Œå…ˆç§»é™¤ã€‚
 		if(workNode.m_openPrevNode != null) {
 			workNode.m_openPrevNode.m_openNextNode = workNode.m_openNextNode;
 			if(workNode.m_openNextNode != null) {
@@ -23,7 +23,7 @@ public class RootNode extends WorkNode {
 			}
 		}
 		
-		//´Ó¿ªÊ¼½ÚµãµÄµÚ¶ş¸ö½Úµã¿ªÊ¼£¬¿ªÊ¼½ÚµãÎªÆğÊ¼½Úµã£¬ÓÀÔ¶²»Îª¿Õ¡£
+		//ä»å¼€å§‹èŠ‚ç‚¹çš„ç¬¬äºŒä¸ªèŠ‚ç‚¹å¼€å§‹ï¼Œå¼€å§‹èŠ‚ç‚¹ä¸ºèµ·å§‹èŠ‚ç‚¹ï¼Œæ°¸è¿œä¸ä¸ºç©ºã€‚
 		WorkNode currNode = this;
 		WorkNode nextNode = currNode.m_openNextNode;
 		boolean isAddOpen = false;

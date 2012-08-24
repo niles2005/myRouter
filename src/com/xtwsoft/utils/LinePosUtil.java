@@ -3,7 +3,7 @@ package com.xtwsoft.utils;
 import java.util.ArrayList;
 
 public class LinePosUtil {
-	//²úÉúpoint3µÄµãµ½Point1ºÍPoint2µ½Á¬Ïßµ½´¹Ö±µã¡£´¹Ö±µã¿ÉÄÜ²»ÔÚÏß¶ÎÉÏ
+	//äº§ç”Ÿpoint3çš„ç‚¹åˆ°Point1å’ŒPoint2åˆ°è¿çº¿åˆ°å‚ç›´ç‚¹ã€‚å‚ç›´ç‚¹å¯èƒ½ä¸åœ¨çº¿æ®µä¸Š
 //	public static Point getPointAtLine(Point point1,Point point2,Point point3) {
 //		if(point1.x == point2.x) {
 //			return new Point(point1.x,point3.y);
@@ -17,7 +17,7 @@ public class LinePosUtil {
 //		}
 //	}
 
-	//Çóµã3ÔÚµã1ºÍµã2µ½Ïß¶ÎÉÏµÄ´¹Ö±µã£¬¿ÉÒÔÊÇÔÚÑÓ³¤ÏßÉÏ
+	//æ±‚ç‚¹3åœ¨ç‚¹1å’Œç‚¹2åˆ°çº¿æ®µä¸Šçš„å‚ç›´ç‚¹ï¼Œå¯ä»¥æ˜¯åœ¨å»¶é•¿çº¿ä¸Š
 	public static EarthPos getPointOnLine(EarthPos ePos1,EarthPos ePos2,EarthPos ePos3) {
 		
 		if(ePos1.getILon() == ePos2.getILon()) {
@@ -38,7 +38,7 @@ public class LinePosUtil {
 		}
 	}
 
-	//Çóµã3ÔÚµã1ºÍµã2µ½Ïß¶ÎÉÏµÄ´¹Ö±µã£¬Ö»ÄÜÔÚÏß¶ÎÉÏ£¬²»ÄÜÔÚÑÓ³¤ÏßÉÏ
+	//æ±‚ç‚¹3åœ¨ç‚¹1å’Œç‚¹2åˆ°çº¿æ®µä¸Šçš„å‚ç›´ç‚¹ï¼Œåªèƒ½åœ¨çº¿æ®µä¸Šï¼Œä¸èƒ½åœ¨å»¶é•¿çº¿ä¸Š
 	public static EarthPos getPointInLine(EarthPos ePos1,EarthPos ePos2,EarthPos ePos3) {
 		
 		if(ePos1.getILon() == ePos2.getILon()) {
@@ -84,7 +84,7 @@ public class LinePosUtil {
 		return Math.sqrt(EdgeLen * (gPos1.posX - gPos2.posX) * EdgeLen * (gPos1.posX - gPos2.posX) +  EdgeLen *  (gPos1.posY - gPos2.posY) * EdgeLen *  (gPos1.posY - gPos2.posY));
 	}
 	
-	//È¡µÃÒ»µãÔÚÒ»ÌõÏß¶ÎÉÏµÄ¾àÀë×î¶ÌµÄµã
+	//å–å¾—ä¸€ç‚¹åœ¨ä¸€æ¡çº¿æ®µä¸Šçš„è·ç¦»æœ€çŸ­çš„ç‚¹
 	public static EarthPos getLPointInLine(EarthPos ePos,EarthPos[] ePosArray) {
 		GlobalPos gPos0 = ePos.convert2GlobalPos();
 		double minLen = Double.MAX_VALUE;
@@ -122,7 +122,7 @@ public class LinePosUtil {
 		return minEPos;
 	}
 	
-	//ÏÖÔÚÈ¡×î½üµÄ´¹Ö±µã£¬Èç¹û´¹µã²»ÔÚÏß¶ÎÉÏ£¬È¡×î½üµÄ¶Ëµã
+	//ç°åœ¨å–æœ€è¿‘çš„å‚ç›´ç‚¹ï¼Œå¦‚æœå‚ç‚¹ä¸åœ¨çº¿æ®µä¸Šï¼Œå–æœ€è¿‘çš„ç«¯ç‚¹
 	public static EarthPos getLPointInLine(EarthPos ePos,ArrayList ePosList) {
 		GlobalPos gPos0 = ePos.convert2GlobalPos();
 		double minLen = Double.MAX_VALUE;
@@ -205,11 +205,11 @@ public class LinePosUtil {
 		return minEPos;
 	}
 	
-	//for each line is ArrayList<Point>, ´Ë´¦½á¹û°üº¬LPointµÄÁ½¶Ë£¨Ò»¹²3µã£¬LPoint¾ÓÖĞ£©
-	//·µ»Ø ÎªEarthPos[3],·Ö±ğÎªleftEndPoint,LPoint,rightEndPoint
-	//ÒòÎªSutherlandHodgmanClipµÄÔ­Òò£¬¿ÉÄÜ¼ôÇĞÊı¾İÖĞÃ»ÓĞfeatureµÄÕæÊµµã(±ÈÈç¼ôÇĞ·¶Î§ÀïÃ»ÓĞFeatureµÄµã)
-	//leftEndPoint ºÍ rightEndPoint ²»Ò»¶¨ÎªÕæÊµµã£¬¿ÉÄÜÎª¼ôÇĞµã
-	//Èç¹ûLPointÎªfeatureµÄÕæÊµµã£¬leftEndPoint ºÍ rightEndPointÍ¬Ê±ÉèÎªLPoint¡£
+	//for each line is ArrayList<Point>, æ­¤å¤„ç»“æœåŒ…å«LPointçš„ä¸¤ç«¯ï¼ˆä¸€å…±3ç‚¹ï¼ŒLPointå±…ä¸­ï¼‰
+	//è¿”å› ä¸ºEarthPos[3],åˆ†åˆ«ä¸ºleftEndPoint,LPoint,rightEndPoint
+	//å› ä¸ºSutherlandHodgmanClipçš„åŸå› ï¼Œå¯èƒ½å‰ªåˆ‡æ•°æ®ä¸­æ²¡æœ‰featureçš„çœŸå®ç‚¹(æ¯”å¦‚å‰ªåˆ‡èŒƒå›´é‡Œæ²¡æœ‰Featureçš„ç‚¹)
+	//leftEndPoint å’Œ rightEndPoint ä¸ä¸€å®šä¸ºçœŸå®ç‚¹ï¼Œå¯èƒ½ä¸ºå‰ªåˆ‡ç‚¹
+	//å¦‚æœLPointä¸ºfeatureçš„çœŸå®ç‚¹ï¼ŒleftEndPoint å’Œ rightEndPointåŒæ—¶è®¾ä¸ºLPointã€‚
 	public static EarthPos[] getLEndPosInLineList(EarthPos ePos,ArrayList lineList) {
 		GlobalPos gPos0 = ePos.convert2GlobalPos();
 		double minLen = Double.MAX_VALUE;
@@ -259,16 +259,16 @@ public class LinePosUtil {
 			}		
 		}
 
-		//ÖĞ¼äÎªÄ¿±êµã£¬Ç°ºóµãÎªÄ¿±êµãµÄÇ°ºóµã¡£Èç¹ûÊÇÏß¶ÎÕæÊµµã£¬Ç°ºóµã¶¼ÉèÎª´Ëµã¡£
+		//ä¸­é—´ä¸ºç›®æ ‡ç‚¹ï¼Œå‰åç‚¹ä¸ºç›®æ ‡ç‚¹çš„å‰åç‚¹ã€‚å¦‚æœæ˜¯çº¿æ®µçœŸå®ç‚¹ï¼Œå‰åç‚¹éƒ½è®¾ä¸ºæ­¤ç‚¹ã€‚
 		return new EarthPos[]{endEPos1,minEPos,endEPos2};
 	}
 	
-	//½üÊÓÅĞ¶Ï£¬²»ÑÏ¸ñ£¬ÓÃÓÚcenterP¿Ï¶¨ÔÚP1ºÍP2ÖĞ¼äµÄÇé¿ö¡£ÈçRouterµÄÊ×Î²µãÎ»ÖÃÅĞ¶Ï¡£
+	//è¿‘è§†åˆ¤æ–­ï¼Œä¸ä¸¥æ ¼ï¼Œç”¨äºcenterPè‚¯å®šåœ¨P1å’ŒP2ä¸­é—´çš„æƒ…å†µã€‚å¦‚Routerçš„é¦–å°¾ç‚¹ä½ç½®åˆ¤æ–­ã€‚
 //	public static boolean isCenterPoint(Point p1,Point p2,Point centerP) {
 //		return isCenterPoint(p1,p2,centerP.x,centerP.y);
 //	}
 //	
-//	//½üÊÓÅĞ¶Ï£¬²»ÑÏ¸ñ£¬ÓÃÓÚcenterP¿Ï¶¨ÔÚP1ºÍP2ÖĞ¼äµÄÇé¿ö¡£ÈçRouterµÄÊ×Î²µãÎ»ÖÃÅĞ¶Ï¡£
+//	//è¿‘è§†åˆ¤æ–­ï¼Œä¸ä¸¥æ ¼ï¼Œç”¨äºcenterPè‚¯å®šåœ¨P1å’ŒP2ä¸­é—´çš„æƒ…å†µã€‚å¦‚Routerçš„é¦–å°¾ç‚¹ä½ç½®åˆ¤æ–­ã€‚
 //	public static boolean isCenterPoint(Point p1,Point p2,int centerX,int centerY) {
 //		double len1 = Math.sqrt((p1.x - centerX) * (p1.x - centerX) + (p1.y - centerY) * (p1.y - centerY)); 
 //		double len2 = Math.sqrt((p2.x - centerX) * (p2.x - centerX) + (p2.y - centerY) * (p2.y - centerY)); 
@@ -280,12 +280,12 @@ public class LinePosUtil {
 //	}
 	
 	
-	//ÅĞ¶ÏµãÎª7Î»µÄEarthPosµÄPoint±íÊ¾£¬ËùÒÔĞè¿¼ÂÇÒç³öµÄÇé¿ö
+	//åˆ¤æ–­ç‚¹ä¸º7ä½çš„EarthPosçš„Pointè¡¨ç¤ºï¼Œæ‰€ä»¥éœ€è€ƒè™‘æº¢å‡ºçš„æƒ…å†µ
 	public static boolean isCenterEarthPoint(EarthPos p1,EarthPos p2,EarthPos centerP) {
 		return isCenterEarthPoint(p1,p2,centerP.getILat(),centerP.getILon());
 	}
 	
-	//ÅĞ¶ÏµãÎª7Î»µÄEarthPosµÄPoint±íÊ¾£¬ËùÒÔĞè¿¼ÂÇÒç³öµÄÇé¿ö
+	//åˆ¤æ–­ç‚¹ä¸º7ä½çš„EarthPosçš„Pointè¡¨ç¤ºï¼Œæ‰€ä»¥éœ€è€ƒè™‘æº¢å‡ºçš„æƒ…å†µ
 	public static boolean isCenterEarthPoint(EarthPos p1,EarthPos p2,int centerX,int centerY) {
 		double rr = 0.0001;
 		double len1 = Math.sqrt(rr * (p1.getILat() - centerX) * rr * (p1.getILat() - centerX) + rr * (p1.getILon() - centerY) * rr * (p1.getILon() - centerY)); 

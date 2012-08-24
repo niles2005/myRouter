@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-6 ÏÂÎç06:07:17
+ * @version create timeï¼š2011-9-6 ä¸‹åˆ06:07:17
  */
 package com.xtwsoft.router.carrouter;
 
@@ -18,7 +18,7 @@ public class StopNode extends EndNode {
 	}
 	
 	//   ->->->->
-	//   |=======>------|		     =ÎªÄ¿±êµã
+	//   |=======>------|		     =ä¸ºç›®æ ‡ç‚¹
 	protected void createLinkNodeForOrient1(ArrayList roadPoints,Hashtable pointNodeHash,CarRoad road) {
 		EarthPos pA = (EarthPos)roadPoints.get(0);
 		RoadEnd re = m_carDataStore.getRoadEnd(pA.getILat(), pA.getILon());
@@ -29,9 +29,9 @@ public class StopNode extends EndNode {
 				ePosList.add(ePos);
 			}
 
-			if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+			if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-			} else {//endEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+			} else {//endEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 				ePosList.add(m_roadEnd.m_ePos);
 			}
 
@@ -49,7 +49,7 @@ public class StopNode extends EndNode {
 	}
 	
 	//          <-<-<-<-
-	//   |------>=======|		      =ÎªÄ¿±êµã
+	//   |------>=======|		      =ä¸ºç›®æ ‡ç‚¹
 	protected void createLinkNodeForOrient2(ArrayList roadPoints,Hashtable pointNodeHash,CarRoad road) {
 		EarthPos pZ = (EarthPos)roadPoints.get(roadPoints.size() - 1);
 		RoadEnd re = m_carDataStore.getRoadEnd(pZ);
@@ -60,9 +60,9 @@ public class StopNode extends EndNode {
 				EarthPos ePos = (EarthPos)roadPoints.get(i);
 				ePosList.add(ePos);
 			}
-			if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+			if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-			} else {//endEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+			} else {//endEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 				ePosList.add(m_roadEnd.m_ePos);
 			}
 			

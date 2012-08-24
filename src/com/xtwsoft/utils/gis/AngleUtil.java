@@ -2,14 +2,14 @@ package com.xtwsoft.utils.gis;
 
 
 public class AngleUtil {
-	//¼ÆËã¼Ğ½Ç
+	//è®¡ç®—å¤¹è§’
 //	public static double getCenterAngle(Point p1,Point p2,Point p3){
 //		double ang1 = caculateAngle(p2.x,p2.y,p1.x,p1.y);
 //		double ang2 = caculateAngle(p3.x,p3.y,p2.x,p2.y);
 //		return getCenterAngle(ang1,ang2);
 //	}
 	
-	//¼ÆËã×ª½Ç
+	//è®¡ç®—è½¬è§’
 //	public static double getOrientAngle(Point p1,Point p2,Point p3){
 //		double ang1 = caculateAngle(p2.x,p2.y,p1.x,p1.y);
 //		double ang2 = caculateAngle(p2.x,p2.y,p3.x,p3.y);
@@ -23,14 +23,14 @@ public class AngleUtil {
 //		double angle = ang2 - ang1;
 //		if(angle > 0) {
 //			if(angle < 135) {
-//				return "×ó¹Õ";
+//				return "å·¦æ‹";
 //			}
 //		} else if(angle < 0){
 //			if(angle > -135) {
-//				return "ÓÒ¹Õ";
+//				return "å³æ‹";
 //			}
 //		}
-//		return "¼ÌĞøÖ±ĞĞ";
+//		return "ç»§ç»­ç›´è¡Œ";
 //	}
 	
 	public static String getOrient(double p1x,double p1y,double p2x,double p2y,double p3x,double p3y){
@@ -42,14 +42,14 @@ public class AngleUtil {
 		}
 		if(angle > 0) {
 			if(angle < 160) {
-				return "×ó×ª";
+				return "å·¦è½¬";
 			}
 		} else if(angle < 0){
 			if(angle > -160) {
-				return "ÓÒ×ª";
+				return "å³è½¬";
 			}
 		}
-		return "¼ÌĞøÖ±ĞĞ";
+		return "ç»§ç»­ç›´è¡Œ";
 	}
 	
 //	public static double getOrientAngle(Point p1,Point p2){
@@ -57,11 +57,11 @@ public class AngleUtil {
 //		return angle;
 //	}
 	
-	//¼ÆËã0-360
+	//è®¡ç®—0-360
 //	public static double caculateABSAngle(double x1,double y1,double x2,double y2){
 //		double tan = (y2-y1)/(x2-x1);
 //		
-//		//¸ººÅÎª×ªÎªËãÊõ×ø±ê
+//		//è´Ÿå·ä¸ºè½¬ä¸ºç®—æœ¯åæ ‡
 //		double anglePI = -Math.atan(tan);
 //		
 //		double angle = anglePI*180/Math.PI;
@@ -94,7 +94,7 @@ public class AngleUtil {
 //		else{
 //			double tan = (y2-y1)/(x2-x1);
 //			
-//			//¸ººÅÎª×ªÎªËãÊõ×ø±ê
+//			//è´Ÿå·ä¸ºè½¬ä¸ºç®—æœ¯åæ ‡
 //			anglePI = -Math.atan(tan);
 //			
 //			angle = anglePI*180/Math.PI;
@@ -125,7 +125,7 @@ public class AngleUtil {
 		else{
 			double tan = y2/x2;
 			
-			//¸ººÅÎª×ªÎªËãÊõ×ø±ê
+			//è´Ÿå·ä¸ºè½¬ä¸ºç®—æœ¯åæ ‡
 			double anglePI = Math.atan(tan);
 			
 			double angle = anglePI*180/Math.PI;
@@ -140,7 +140,7 @@ public class AngleUtil {
 		}
 	}
 	
-//	//¼ÆËã¼Ğ½Ç(0-180)
+//	//è®¡ç®—å¤¹è§’(0-180)
 //	private static double getCenterAngle(double ang1,double ang2){
 //		if(ang1<0){
 //			ang1 = 360 + ang1;
@@ -151,7 +151,7 @@ public class AngleUtil {
 //		return Math.abs((180-Math.abs(ang2-ang1)));
 //	}
 //	
-//	//¼ÆËã×ª½Ç(0-360)
+//	//è®¡ç®—è½¬è§’(0-360)
 //	private static double getOrientAngle(double ang1,double ang2){
 //		if(ang1<0){
 //			ang1 = 360 + ang1;

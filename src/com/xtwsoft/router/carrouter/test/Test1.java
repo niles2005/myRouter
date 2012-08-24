@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-6 ÏÂÎç10:40:17
+ * @version create timeï¼š2011-9-6 ä¸‹åˆ10:40:17
  */
 package com.xtwsoft.router.carrouter.test;
 
@@ -22,38 +22,38 @@ public class Test1 {
 		}		
 		CarRouter.initInstance(routerDataFile);
 		
-//		//ÆğµãÔÚ½»²æµãÉÏ
+//		//èµ·ç‚¹åœ¨äº¤å‰ç‚¹ä¸Š
 //		EarthPos startEPos = new EarthPos(118.776211,32.042133);
 ////		EarthPos endEPos = new EarthPos(118.781919,32.041706);
 //		EarthPos endEPos = new EarthPos(118.776597,32.043506);
 		
 		
 		
-////		//Î²µãÔÚ½»²æµãÉÏ
+////		//å°¾ç‚¹åœ¨äº¤å‰ç‚¹ä¸Š
 ////		EarthPos startEPos = new EarthPos(118.779962,32.044843);
 //		EarthPos startEPos = new EarthPos(118.772095,32.043627);
 //		EarthPos endEPos = new EarthPos(118.776211,32.042133);
 		
 
-//		//Ê×Î²µãÏàÍ¬
+//		//é¦–å°¾ç‚¹ç›¸åŒ
 //		EarthPos startEPos = new EarthPos(118.776211,32.042133);
 //		EarthPos endEPos = new EarthPos(118.776211,32.042133);
 
-//		//Ê×Î²µã²»ÔÚ½»²æµãÉÏ£¬µ«ÏàÍ¬
+//		//é¦–å°¾ç‚¹ä¸åœ¨äº¤å‰ç‚¹ä¸Šï¼Œä½†ç›¸åŒ
 //		EarthPos startEPos = new EarthPos(118.777104,32.044692);
 //		EarthPos endEPos = new EarthPos(118.777104,32.044692);
 
-		//Ê×Î²µãÔÚÒ»ÌõroadÉÏ
+		//é¦–å°¾ç‚¹åœ¨ä¸€æ¡roadä¸Š
 //		EarthPos startEPos = new EarthPos(118.782763,32.040243);
 //		EarthPos endEPos = new EarthPos(118.782370,32.040356);
 		
 		
-		//³¤¾àÀë
+		//é•¿è·ç¦»
 //		EarthPos startEPos = new EarthPos(119.040094,31.652118);
 //		EarthPos endEPos = new EarthPos(118.832000,32.326716);
 
 
-		//¶à²íÂ·
+		//å¤šå²”è·¯
 //		EarthPos startEPos = new EarthPos(118.781371,32.040842);
 //		EarthPos endEPos = new EarthPos(118.7798713,32.0359184);
 

@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2012-8-14 ÏÂÎç10:59:23
+ * @version create timeï¼š2012-8-14 ä¸‹åˆ10:59:23
  */
 package com.xtwsoft.router.carrouter;
 
@@ -77,12 +77,12 @@ public class CarRouteSegment extends RouteSegment {
 		
 		String ss = RouteUtil.formatMeterLength(m_totalLen);
 		if(RouteUtil.UnknownRoadName.equals(roadName) || roadName.length() == 0) {
-			part1 =  "ÑØ×Åµ±Ç°Â·ÏòÇ°" + ss;
+			part1 =  "æ²¿ç€å½“å‰è·¯å‘å‰" + ss;
 		} else {
-			part1 =  "ÑØ×Å<B>" + roadName + "</B>ÏòÇ°" + ss;
+			part1 =  "æ²¿ç€<B>" + roadName + "</B>å‘å‰" + ss;
 		}
 		if(nextSegment == null) {
-			segmentName =  part1 + ",µ½´ïÖÕµã";	
+			segmentName =  part1 + ",åˆ°è¾¾ç»ˆç‚¹";	
 		} else {
 			String nextRoadName = nextSegment.m_roadName;
 			EarthPos p1 = m_posList.get(m_posList.size() - 2);
@@ -91,11 +91,11 @@ public class CarRouteSegment extends RouteSegment {
 			String angleInfo = RouteUtil.crateRouteAnage(p1,p2,p3);
 
 			if(RouteUtil.UnknownRoadName.equals(nextRoadName)) {
-				segmentName =  part1 + "´¦" + angleInfo;
+				segmentName =  part1 + "å¤„" + angleInfo;
 			} else if(nextRoadName.length() == 0) {
-				segmentName =  part1 + "´¦" + angleInfo;
+				segmentName =  part1 + "å¤„" + angleInfo;
 			} else {
-				segmentName =  part1 + ",µ½<B>" + nextRoadName + "</B>" + angleInfo;
+				segmentName =  part1 + ",åˆ°<B>" + nextRoadName + "</B>" + angleInfo;
 			}
 		}
 		return CharUtil.toUnicode(segmentName);

@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2012-8-24 ÏÂÎç03:05:00
+ * @version create timeï¼š2012-8-24 ä¸‹åˆ03:05:00
  */
 package com.xtwsoft.utils;
 
@@ -29,7 +29,7 @@ public class CharUtil {
 	}
 	
 	public static void main(String[] args) {
-		System.err.println(CharUtil.toUnicode("ÒÔ´ËÎªÆğµã"));
+		System.err.println(CharUtil.toUnicode("å¼€å§‹å¯¼èˆª"));
 	}
 	
 }

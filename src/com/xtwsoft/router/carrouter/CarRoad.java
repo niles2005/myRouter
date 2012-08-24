@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-26 ÏÂÎç10:45:37
+ * @version create timeï¼š2011-9-26 ä¸‹åˆ10:45:37
  */
 package com.xtwsoft.router.carrouter;
 
@@ -22,7 +22,7 @@ public class CarRoad extends Node {
 	private String m_name = null;
 	private int m_orient = 0;
 	private byte[] m_posBytes = null;
-	private int m_roadLength = 0;//µ¥Î»£ºÃ×
+	private int m_roadLength = 0;//å•ä½ï¼šç±³
 	private int m_roadTime = 0;
 	
 	public CarRoad() {

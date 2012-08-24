@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-26 ÏÂÎç09:13:14
+ * @version create timeï¼š2011-9-26 ä¸‹åˆ09:13:14
  */
 package com.xtwsoft.utils;
 

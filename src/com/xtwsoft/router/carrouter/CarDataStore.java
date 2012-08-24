@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-29 ÏÂÎç02:17:24
+ * @version create timeï¼š2011-9-29 ä¸‹åˆ02:17:24
  */
 package com.xtwsoft.router.carrouter;
 

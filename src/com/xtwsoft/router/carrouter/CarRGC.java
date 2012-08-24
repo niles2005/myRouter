@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time��2011-9-6 ����02:24:04
+ * @version create time：2011-9-6 下午02:24:04
  */
 package com.xtwsoft.router.carrouter;
 
@@ -44,7 +44,7 @@ public class CarRGC {
 	
 
 	
-	//ȡ�þ�γ�ȵĵ�ַ
+	//取得经纬度的地址
 	public String getLocationName(EarthPos ePos) {
 		double theRange = Range;
 		GlobalPos gPos = ePos.convert2GlobalPos();
@@ -71,7 +71,7 @@ public class CarRGC {
 				CarRoad road = (CarRoad)list.get(i);
 				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
 		        if(lineList != null && lineList.size() > 0) {
-		        	//ԭ����ȡ��������е�
+		        	//原来是取最近的已有点
 //		        	for(int j=0;j<lineList.size();j++) {
 //		        		ArrayList points = (ArrayList)lineList.get(j);
 //		        		for(int k=0;k<points.size();k++) {
@@ -84,7 +84,7 @@ public class CarRGC {
 //			        		}
 //		        		}
 //		        	}
-		        	//����ȡ����Ĵ�ֱ�㣬������㲻���߶��ϣ�ȡ����Ķ˵�
+		        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
 		        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
 		        	if(theLPos != null) {
 		        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
@@ -107,7 +107,7 @@ public class CarRGC {
 		return minCarRoad.getName();
 	}
 	
-	//��λ�㵽·��������ĵ�
+	//定位点到路线上最近的点
 	public EarthPos locatePos2Road(EarthPos ePos) {
 		double theRange = Range;
 		GlobalPos gPos = ePos.convert2GlobalPos();
@@ -129,7 +129,7 @@ public class CarRGC {
 				CarRoad road = (CarRoad)list.get(i);
 				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
 		        if(lineList != null && lineList.size() > 0) {
-		        	//ԭ����ȡ��������е�
+		        	//原来是取最近的已有点
 //		        	for(int j=0;j<lineList.size();j++) {
 //		        		ArrayList points = (ArrayList)lineList.get(j);
 //		        		for(int k=0;k<points.size();k++) {
@@ -142,7 +142,7 @@ public class CarRGC {
 //			        		}
 //		        		}
 //		        	}
-		        	//����ȡ����Ĵ�ֱ�㣬������㲻���߶��ϣ�ȡ����Ķ˵�
+		        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
 		        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
 		        	if(theLPos != null) {
 		        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
@@ -169,10 +169,10 @@ public class CarRGC {
 
 		CarRoad minCarRoad = null;
 		
-//		minLEndEPoints ΪEarthPos[3],�ֱ�ΪleftEndPoint,LPoint,rightEndPoint
-		//��ΪSutherlandHodgmanClip��ԭ�򣬿��ܼ���������û��road����ʵ��(������з�Χ��û��road�ĵ�)
-		//leftEndPoint �� rightEndPoint ��һ��Ϊ��ʵ�㣬����Ϊ���е�
-		//���LPointΪroad����ʵ�㣬leftEndPoint �� rightEndPointͬʱ��ΪLPoint��
+//		minLEndEPoints 为EarthPos[3],分别为leftEndPoint,LPoint,rightEndPoint
+		//因为SutherlandHodgmanClip的原因，可能剪切数据中没有road的真实点(比如剪切范围里没有road的点)
+		//leftEndPoint 和 rightEndPoint 不一定为真实点，可能为剪切点
+		//如果LPoint为road的真实点，leftEndPoint 和 rightEndPoint同时设为LPoint。
 		EarthPos[] minLEndEPoses = null;
 		
 		int count = 0;
@@ -190,7 +190,7 @@ public class CarRGC {
 				CarRoad road = (CarRoad)list.get(i);
 				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
 		        if(lineList != null && lineList.size() > 0) {
-		        	//ԭ����ȡ��������е�
+		        	//原来是取最近的已有点
 //		        	for(int j=0;j<lineList.size();j++) {
 //		        		ArrayList points = (ArrayList)lineList.get(j);
 //		        		for(int k=0;k<points.size();k++) {
@@ -203,7 +203,7 @@ public class CarRGC {
 //			        		}
 //		        		}
 //		        	}
-		        	//����ȡ����Ĵ�ֱ�㼰���ˣ�������㲻���߶��ϣ�ȡ����Ķ˵㣨LEnd��L & 2End Ϊ����,L ���У�
+		        	//现在取最近的垂直点及两端，如果垂点不在线段上，取最近的端点（LEnd，L & 2End 为三点,L 居中）
 		        	EarthPos[] theLEndEPoses = LinePosUtil.getLEndPosInLineList(ePos, lineList);
 		        	if(theLEndEPoses != null && theLEndEPoses[1] != null) {
 		        		double len = getLen(ePos,theLEndEPoses[1].getILat(),theLEndEPoses[1].getILon());
@@ -225,12 +225,12 @@ public class CarRGC {
 			return null;
 		}
 		
-		//��ȡLPoint����������ʵ�����������LPointΪRoad����ʵ�㣬����������ͬ��ͬ��ΪLPonit����
+		//获取LPoint的左右两真实点索引，如果LPoint为Road的真实点，左右索引相同，同设为LPonit索引
 		int leftIndex = -1;
 		int rightIndex = -1;
 		ArrayList roadPoses = minCarRoad.getEPosList();
 		
-		//������ͬ��LPoint����ΪFeature����ʵ��,Ҳ�����Ǽ��з�Χ�Ķ˵㡣
+		//三点相同，LPoint可能为Feature的真实点,也可能是剪切范围的端点。
 		if(minLEndEPoses[0] == minLEndEPoses[1] && minLEndEPoses[1] == minLEndEPoses[2]) {
 			int checkX = minLEndEPoses[1].getILat();
 			int checkY = minLEndEPoses[1].getILon();
@@ -242,7 +242,7 @@ public class CarRGC {
 					break;
 				}
 			}
-		} else {//is in point line Ŀ�����points��ĳ���߶��ϣ��߶�����Ϊm_LEndEPoints[0],m_LEndEPoints[2]
+		} else {//is in point line 目标点在points的某个线段上，线段两端为m_LEndEPoints[0],m_LEndEPoints[2]
 			for(int i=0;i<roadPoses.size();i++) {
 				EarthPos thePos = (EarthPos)roadPoses.get(i);
 				if(thePos.getILat() == minLEndEPoses[0].getILat() && thePos.getILon() == minLEndEPoses[0].getILon()) {
@@ -259,7 +259,7 @@ public class CarRGC {
 			
 		}
 		
-		if(leftIndex == -1) {//��δ�ҵ��������ж����߶��м�
+		if(leftIndex == -1) {//仍未找到索引，判断在线段中间
 			int centerX = minLEndEPoses[1].getILat();
 			int centerY = minLEndEPoses[1].getILon();
 			
@@ -278,7 +278,7 @@ public class CarRGC {
 			return null;
 		}
 		
-		//�Ƿ�λ�ڽ������
+		//是否位于交叉点上
 		RoadEnd roadEnd = m_carDataStore.getRoadEnd(minLEndEPoses[1]);
 		
 		if(isStart) {

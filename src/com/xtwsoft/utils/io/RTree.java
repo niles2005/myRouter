@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-26 ÏÂÎç09:47:15
+ * @version create timeï¼š2011-9-26 ä¸‹åˆ09:47:15
  */
 package com.xtwsoft.utils.io;
 
@@ -176,7 +176,7 @@ public class RTree implements StreamSerializable {
 		}
 	}
 	
-    //¹ã¶ÈÓÅÏÈÅÅÁĞ
+    //å¹¿åº¦ä¼˜å…ˆæ’åˆ—
     private void listNodes(ArrayList list, Hashtable hash,Link node) {
         Link theLink = (Link) node;
         for (int i = 0; i < theLink.getNodeCount(); i++) {
@@ -194,7 +194,7 @@ public class RTree implements StreamSerializable {
 	
     private NodeBuilder m_nodeBuilder = null;
     
-    //´Ë´¦µÄ¹¹Ôìº¯ÊıÄ¿µÄÊÇÎªÁË´ÓÎÄ¼ş·´ĞòÁĞ»¯¶ÔÏó£¬ËùÒÔ±ØĞë´«ÈëÒ»¸ö·Ç¿ÕµÄNodeBuilder
+    //æ­¤å¤„çš„æ„é€ å‡½æ•°ç›®çš„æ˜¯ä¸ºäº†ä»æ–‡ä»¶ååºåˆ—åŒ–å¯¹è±¡ï¼Œæ‰€ä»¥å¿…é¡»ä¼ å…¥ä¸€ä¸ªéç©ºçš„NodeBuilder
     public RTree(NodeBuilder nodeBuilder) {
     	m_nodeBuilder = nodeBuilder;
     	if(m_nodeBuilder == null) {
@@ -202,8 +202,8 @@ public class RTree implements StreamSerializable {
     	}
     }
 	
-    //´Ë´¦Ğ´ºÍ¶ÁµÄÉè¼ÆÀï²ÉÓÃListºÍHashtable£¬Ö÷ÒªµÄÄ¿µÄÊÇ²»ÓÃÔÚNode»òLinkÖĞ¼ÇÂ¼¶ÔÏóµÄ¹ØÏµÊôĞÔ£¬¼´Á´½ÓÊôĞÔ£¬
-    //¶øÊÇÔÚ´Ë´¦¼ÇÂ¼£¬±ãÓÚNodeºÍLinkµÄÇå½à¡£
+    //æ­¤å¤„å†™å’Œè¯»çš„è®¾è®¡é‡Œé‡‡ç”¨Listå’ŒHashtableï¼Œä¸»è¦çš„ç›®çš„æ˜¯ä¸ç”¨åœ¨Nodeæˆ–Linkä¸­è®°å½•å¯¹è±¡çš„å…³ç³»å±æ€§ï¼Œå³é“¾æ¥å±æ€§ï¼Œ
+    //è€Œæ˜¯åœ¨æ­¤å¤„è®°å½•ï¼Œä¾¿äºNodeå’ŒLinkçš„æ¸…æ´ã€‚
     public void readInputStream(InputStream is) throws IOException {
 		int nodeNum = IOUtil.readInt(is);
 		ArrayList list = new ArrayList(nodeNum);

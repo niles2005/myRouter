@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-27 ÏÂÎç09:33:19
+ * @version create timeï¼š2011-9-27 ä¸‹åˆ09:33:19
  */
 package com.xtwsoft.router.carrouter;
 
@@ -33,7 +33,7 @@ public class CarLinker {
 		return 0;
 	}
 
-	//´ËTemp PosListÎªEnd½Úµã´¦ÇĞ·ÖµÄÏß¶Îµã£¬Èç¹û´ËÖµÎª¿Õ£¬ÔòÈ¡roadµÄPosList
+	//æ­¤Temp PosListä¸ºEndèŠ‚ç‚¹å¤„åˆ‡åˆ†çš„çº¿æ®µç‚¹ï¼Œå¦‚æœæ­¤å€¼ä¸ºç©ºï¼Œåˆ™å–roadçš„PosList
 	private ArrayList m_tempPosList;
 	public CarLinker(RoadEnd roadEnd,int linkLen,int linkTime,CarRoad road,ArrayList tempPosList) {
 		m_roadEnd = roadEnd;

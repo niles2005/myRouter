@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-8-22 ÏÂÎç09:23:52
+ * @version create timeï¼š2011-8-22 ä¸‹åˆ09:23:52
  */
 package com.xtwsoft.router.carrouter;
 
@@ -43,7 +43,7 @@ public class WorkNode {
 		return m_roadEnd;
 	}
 	
-	//Á¬½Óµ½µ±Ç°½ÚµãµÄLinker
+	//è¿æ¥åˆ°å½“å‰èŠ‚ç‚¹çš„Linker
 	protected CarLinker m_prevLinker = null;
 	
 	private CarLinker m_linker = null;

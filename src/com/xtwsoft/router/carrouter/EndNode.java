@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-7 ÉÏÎç10:25:34
+ * @version create timeï¼š2011-9-7 ä¸‹åˆ10:25:34
  */
 package com.xtwsoft.router.carrouter;
 
@@ -12,7 +12,7 @@ import java.util.Hashtable;
 import com.xtwsoft.utils.EarthPos;
 import com.xtwsoft.utils.gis.EarthPosLengthUtil;
 
-//¶Ëµã½Úµã   
+//ç«¯ç‚¹èŠ‚ç‚¹  
 public abstract class EndNode extends WorkNode {
 	protected int m_leftIndex = -1;
 	protected int m_rightIndex = -1;
@@ -45,7 +45,7 @@ public abstract class EndNode extends WorkNode {
 		
 		EarthPos pA = (EarthPos)roadPosList.get(0);
 		EarthPos pZ = (EarthPos)roadPosList.get(roadPosList.size() - 1);
-		//¼ì²éÊÇ·ñÎ»ÓÚÂ·Ïß¶ËµãÉÏ,Èç¹ûÊÇ£¬¾Í²»±Ø½øĞĞµãµÄÁ´½Ó¶¯×÷
+		//æ£€æŸ¥æ˜¯å¦ä½äºè·¯çº¿ç«¯ç‚¹ä¸Š,å¦‚æœæ˜¯ï¼Œå°±ä¸å¿…è¿›è¡Œç‚¹çš„é“¾æ¥åŠ¨ä½œ
 		if(m_roadEnd.equals(pA)) {
 
 		} else if(m_roadEnd.equals(pZ)) {
@@ -55,20 +55,20 @@ public abstract class EndNode extends WorkNode {
 				this.createLinkNodeForOrient1(roadPosList,pointNodeHash,m_road);
 			} else if(m_orient == 2) {
 				this.createLinkNodeForOrient2(roadPosList,pointNodeHash,m_road);
-			} else if(m_orient == 3) {//Ë«Ïò
+			} else if(m_orient == 3) {//åŒå‘
 				this.createLinkNodeForOrient1(roadPosList,pointNodeHash,m_road);
 				this.createLinkNodeForOrient2(roadPosList,pointNodeHash,m_road);
-			} else if(m_orient == 0) {//²»¿Éµ¼º½
-				return "´Ë´¦µÀÂ·²»ÄÜµ¼º½£¡";
+			} else if(m_orient == 0) {//ä¸å¯å¯¼èˆª
+				return "æ­¤å¤„é“è·¯ä¸èƒ½å¯¼èˆªï¼";
 			}
 		}
 
-		//²»ÔÚ¿ªÊ¼´¦£¬¶øÔÚ´Ë´¦¼ÓÈë£¬ÒòÎª¿ÉÄÜ»»CarPoint
+		//ä¸åœ¨å¼€å§‹å¤„ï¼Œè€Œåœ¨æ­¤å¤„åŠ å…¥ï¼Œå› ä¸ºå¯èƒ½æ¢CarPoint
 		pointNodeHash.put(this.m_roadEnd, this);
 		return null;
 	}
 	
-	//´Ó×ó¶ËËãÆğ£¬µ½Ä¿±êµãµÄ¾àÀë£¬ÓÃÓÚÊ×Î²µãÔÚÍ¬Ò»ÌõÏßÉÏÇé¿ö£¬ËùÒÔÓÃdouble£¬ÒÔ×÷¾«È·¼ÆËã
+	//ä»å·¦ç«¯ç®—èµ·ï¼Œåˆ°ç›®æ ‡ç‚¹çš„è·ç¦»ï¼Œç”¨äºé¦–å°¾ç‚¹åœ¨åŒä¸€æ¡çº¿ä¸Šæƒ…å†µï¼Œæ‰€ä»¥ç”¨doubleï¼Œä»¥ä½œç²¾ç¡®è®¡ç®—
 	public double getLengthFromRoadPointAEnd() {
 		ArrayList roadPoints = this.m_road.getEPosList();
 		ArrayList tmpList = new ArrayList();
@@ -78,9 +78,9 @@ public abstract class EndNode extends WorkNode {
 			tmpList.add(thePos);
 		}
 		
-		if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+		if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-		} else {//startEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+		} else {//startEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 			tmpList.add(m_roadEnd.m_ePos);
 		}
 		return EarthPosLengthUtil.getLineLength(tmpList);

@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2012-8-14 ÏÂÎç10:20:23
+ * @version create timeï¼š2012-8-14 ä¸‹åˆ10:20:23
  */
 package com.xtwsoft.router;
 
@@ -31,15 +31,15 @@ public class RouteResult {
 		m_routeType = routeType;
 		
 		if(startEPos == null) {
-			m_errorMessage = CharUtil.toUnicode("¿ªÊ¼µ¼º½¾­Î³¶ÈÎª¿Õ£¡");
+			m_errorMessage = CharUtil.toUnicode("å¼€å§‹å¯¼èˆªç»çº¬åº¦ä¸ºç©ºï¼");
 		}
 		if(endEPos == null) {
-			m_errorMessage = CharUtil.toUnicode("Ä¿±êµ¼º½¾­Î³¶ÈÎª¿Õ£¡");
+			m_errorMessage = CharUtil.toUnicode("ç›®æ ‡å¯¼èˆªç»çº¬åº¦ä¸ºç©ºï¼");
 		}
 
-		//Ê×Î²µãÏàÍ¬
+		//é¦–å°¾ç‚¹ç›¸åŒ
 		if(startEPos.getILat() == endEPos.getILat() && startEPos.getILon() == endEPos.getILon()) {
-			m_errorMessage = CharUtil.toUnicode("µ¼º½ÆğÖ¹¾­Î³¶ÈÏàÍ¬£¡");
+			m_errorMessage = CharUtil.toUnicode("å¯¼èˆªèµ·æ­¢ç»çº¬åº¦ç›¸åŒï¼");
 		}
 	}
 	

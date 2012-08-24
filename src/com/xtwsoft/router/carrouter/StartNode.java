@@ -2,7 +2,7 @@
  * Copyright(c) 2010 XTWSoft, Inc.
  *
  * @author NieLei E-mail:niles2010@live.cn
- * @version create time£º2011-9-6 ÏÂÎç06:07:17
+ * @version create timeï¼š2011-9-6 ä¸‹åˆ06:07:17
  */
 package com.xtwsoft.router.carrouter;
 
@@ -17,10 +17,10 @@ public class StartNode extends EndNode {
 		super(carRoad,startPoint,leftIndex,rightIndex,carDataStore);
 	}
 	
-	//Ä¿µÄ£º
-	//1.ÉèÖÃÊ×µãFGH
-	//2.½â¾öÊ×Î²µãÔÚÒ»µãµÄÇé¿ö£¨´Ë´¦ÒÑ²»ÅĞ¶Ï£¬ÒÑÔÚRoute¿ªÊ¼Ê±Ô¤ÏÈÅĞ¶Ï£©
-	//3.Ê×Î²µãÔÚÒ»ÌõÏßÉÏµÄÇé¿ö
+	//ç›®çš„ï¼š
+	//1.è®¾ç½®é¦–ç‚¹FGH
+	//2.è§£å†³é¦–å°¾ç‚¹åœ¨ä¸€ç‚¹çš„æƒ…å†µï¼ˆæ­¤å¤„å·²ä¸åˆ¤æ–­ï¼Œå·²åœ¨Routeå¼€å§‹æ—¶é¢„å…ˆåˆ¤æ–­ï¼‰
+	//3.é¦–å°¾ç‚¹åœ¨ä¸€æ¡çº¿ä¸Šçš„æƒ…å†µ
 	public void setStopNode(StopNode stopNode,int routeType) {
 		calcFGH(0, stopNode,routeType);
 
@@ -28,7 +28,7 @@ public class StartNode extends EndNode {
 			double startFromAEnd = this.getLengthFromRoadPointAEnd();
 			double endFromAEnd = stopNode.getLengthFromRoadPointAEnd();
 			
-			if(startFromAEnd == endFromAEnd) {//Ê×Î²µãÏàÍ¬
+			if(startFromAEnd == endFromAEnd) {//é¦–å°¾ç‚¹ç›¸åŒ
 				
 			} else if(startFromAEnd < endFromAEnd) {
 				if(this.m_orient == 1) {
@@ -55,9 +55,9 @@ public class StartNode extends EndNode {
 		ArrayList roadPosList = m_road.getEPosList();
 		ArrayList<EarthPos> ePosList = new ArrayList<EarthPos>();
 
-		if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+		if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-		} else {//startEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+		} else {//startEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 			ePosList.add(m_roadEnd.m_ePos);
 		}
 		if(orient == 1) {
@@ -71,9 +71,9 @@ public class StartNode extends EndNode {
 				ePosList.add(ePos);
 			}
 		}
-		if(stopNode.m_leftIndex == stopNode.m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+		if(stopNode.m_leftIndex == stopNode.m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-		} else {//startEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+		} else {//startEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 			ePosList.add(stopNode.m_roadEnd.m_ePos);
 		}
 		
@@ -88,16 +88,16 @@ public class StartNode extends EndNode {
 	}
 	
 	//          ->->->->
-	//   |------>=======|		     =ÎªÄ¿±êµã
+	//   |------>=======|		     =ä¸ºç›®æ ‡ç‚¹
 	protected void createLinkNodeForOrient1(ArrayList roadPosList,Hashtable pointNodeHash,CarRoad road) {
 		EarthPos pZ = (EarthPos)roadPosList.get(roadPosList.size() - 1);
 		RoadEnd re = m_carDataStore.getRoadEnd(pZ);
 		if(re != null) {
 			ArrayList ePosList = new ArrayList();
 
-			if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+			if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-			} else {//startEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+			} else {//startEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 				ePosList.add(m_roadEnd.m_ePos);
 			}
 			for(int i=m_rightIndex;i<roadPosList.size();i++) {
@@ -120,16 +120,16 @@ public class StartNode extends EndNode {
 	}
 	
 	//    <-<-<-<-
-	//   |=======>------|		     =ÎªÄ¿±êµã
+	//   |=======>------|		     =ä¸ºç›®æ ‡ç‚¹
 	protected void createLinkNodeForOrient2(ArrayList roadPosList,Hashtable posNodeHash,CarRoad road) {
 		EarthPos pA = (EarthPos)roadPosList.get(0);
 		RoadEnd re = m_carDataStore.getRoadEnd(pA);
 		if(re != null) {
 			ArrayList ePosList = new ArrayList();
 
-			if(m_leftIndex == m_rightIndex) { //endEPoint Îª roadPointsÄ³µã
+			if(m_leftIndex == m_rightIndex) { //endEPoint ä¸º roadPointsæŸç‚¹
 
-			} else {//startEPoint Îª roadPointsÄ³Á½µãÖ®¼ä
+			} else {//startEPoint ä¸º roadPointsæŸä¸¤ç‚¹ä¹‹é—´
 				ePosList.add(m_roadEnd.m_ePos);
 			}
 			for(int i=m_leftIndex;i>=0;i--) {
