@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import com.xtwsoft.router.RouteLine;
+import com.xtwsoft.utils.CharUtil;
 import com.xtwsoft.utils.EarthPos;
 
 public class CarRouteLine extends RouteLine {
@@ -67,9 +68,9 @@ public class CarRouteLine extends RouteLine {
 			strBuff.append("\"routeType\":\"" + RouteUtil.getRouteTypeName(m_routeType) + "\",");
 	
 			strBuff.append("\"totallen\":\"");
-			strBuff.append(RouteUtil.formatMeterLength(m_routeTotalLen) + "\",");
+			strBuff.append(CharUtil.toUnicode(RouteUtil.formatMeterLength(m_routeTotalLen)) + "\",");
 			strBuff.append("\"totaltime\":\"");
-			strBuff.append(RouteUtil.formatSecondTime(m_routeTotalTime) + "\",");
+			strBuff.append(CharUtil.toUnicode(RouteUtil.formatSecondTime(m_routeTotalTime)) + "\",");
 			
 			strBuff.append("\"segments\":");
 			strBuff.append("[");

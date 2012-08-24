@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import com.xtwsoft.router.RouteLine;
 import com.xtwsoft.router.RouteResult;
+import com.xtwsoft.utils.CharUtil;
 import com.xtwsoft.utils.EarthPos;
 
 public class CarRouter {
@@ -37,12 +38,12 @@ public class CarRouter {
 			
 			StartNode startNode = (StartNode)CarRGC.getInstance().createEndNode(startEPos,true);
 			if(startNode == null) {
-				routeResult.setError("不能定位导航起点！");
+				routeResult.setError(CharUtil.toUnicode("不能定位导航起点！"));
 				return routeResult;
 			}
 			StopNode stopNode = (StopNode)CarRGC.getInstance().createEndNode(endEPos,false);
 			if(stopNode == null) {
-				routeResult.setError("不能定位导航终点！");
+				routeResult.setError(CharUtil.toUnicode("不能定位导航终点！"));
 				return routeResult;
 			}
 			
@@ -65,7 +66,7 @@ public class CarRouter {
 			}
 			//经过定位处理，原来不相同的首尾点可能变成相同。所以此次加上判断
 			if(startNode.m_roadEnd.equals(stopNode.m_roadEnd)) {
-				routeResult.setError("导航起止点相同！");//此处可能需改为首位点连线
+				routeResult.setError(CharUtil.toUnicode("导航起止点相同！"));//此处可能需改为首位点连线
 				return routeResult;
 			}
 			
@@ -93,7 +94,7 @@ public class CarRouter {
 			posNodeHash.clear();
 		} catch(Exception ex) {
 			ex.printStackTrace();
-			routeResult.setError("导航异常:" + ex.getMessage());
+			routeResult.setError("exception:" + ex.getMessage());
 
 		}
 		return routeResult;

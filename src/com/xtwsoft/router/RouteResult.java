@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.xtwsoft.router.carrouter.StartNode;
 import com.xtwsoft.router.carrouter.StopNode;
+import com.xtwsoft.utils.CharUtil;
 import com.xtwsoft.utils.EarthPos;
 
 public class RouteResult {
@@ -30,15 +31,15 @@ public class RouteResult {
 		m_routeType = routeType;
 		
 		if(startEPos == null) {
-			m_errorMessage = "开始导航经纬度为空！";
+			m_errorMessage = CharUtil.toUnicode("开始导航经纬度为空！");
 		}
 		if(endEPos == null) {
-			m_errorMessage = "目标导航经纬度为空！";
+			m_errorMessage = CharUtil.toUnicode("目标导航经纬度为空！");
 		}
 
 		//首尾点相同
 		if(startEPos.getILat() == endEPos.getILat() && startEPos.getILon() == endEPos.getILon()) {
-			m_errorMessage = "导航起止经纬度相同！";
+			m_errorMessage = CharUtil.toUnicode("导航起止经纬度相同！");
 		}
 	}
 	
@@ -99,14 +100,14 @@ public class RouteResult {
 		
 		if(this.m_startNode != null) {
 			strBuff.append("\",\"fromName\":\"");
-			strBuff.append(m_startNode.getRoadName());
+			strBuff.append(CharUtil.toUnicode(m_startNode.getRoadName()));
 			strBuff.append("\",\"fromPos\":\"");
 			strBuff.append(m_startNode.getRoadEnd().getLatLonString());
 		}
 		
 		if(this.m_stopNode != null) {
 			strBuff.append("\",\"toName\":\"");
-			strBuff.append(m_stopNode.getRoadName());
+			strBuff.append(CharUtil.toUnicode(m_stopNode.getRoadName()));
 			strBuff.append("\",\"toPos\":\"");
 			strBuff.append(m_stopNode.getRoadEnd().getLatLonString());
 		}

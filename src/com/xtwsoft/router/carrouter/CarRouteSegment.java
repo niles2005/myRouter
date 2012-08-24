@@ -9,6 +9,7 @@ package com.xtwsoft.router.carrouter;
 import java.util.ArrayList;
 
 import com.xtwsoft.router.RouteSegment;
+import com.xtwsoft.utils.CharUtil;
 import com.xtwsoft.utils.EarthPos;
 
 public class CarRouteSegment extends RouteSegment {
@@ -97,7 +98,7 @@ public class CarRouteSegment extends RouteSegment {
 				segmentName =  part1 + ",µ½<B>" + nextRoadName + "</B>" + angleInfo;
 			}
 		}
-		return segmentName;
+		return CharUtil.toUnicode(segmentName);
 	}
 	
 	public void buildPosString(StringBuffer strBuff,boolean isV7,boolean isOffset) {
