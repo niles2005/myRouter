@@ -16,16 +16,19 @@ public abstract class Node implements StreamSerializable {
 	
     protected Bounds m_bounds;
     protected Link m_parent;
+    
+    protected byte m_nodeTypeByte = 'N';//node
 
-    public Node() {
+    public Node(byte nodeTypeByte) {
+    	m_nodeTypeByte = nodeTypeByte;
+    }
+    
+    public byte getNodeTypeByte() {
+    	return m_nodeTypeByte;
     }
 
     public Bounds getBounds() {
         return m_bounds;
-    }
-
-    void setBounds(Bounds envelope) {
-        m_bounds = envelope;
     }
 
     public Link getLinkParent() {

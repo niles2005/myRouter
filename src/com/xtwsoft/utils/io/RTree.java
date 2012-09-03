@@ -214,17 +214,19 @@ public class RTree implements StreamSerializable {
 			byte nodeType = IOUtil.readByte(is);
 			int parentIndex = IOUtil.readInt(is);
 			Node theNode = null;
-			if(nodeType == 'L') {
+			if(nodeType == 'L') {//link
 				theNode = new Link();
 				theNode.readInputStream(is);
 				
 				list.add(theNode);
 				hash.put(theNode, 0);
-			} else {//'N'
-				theNode = m_nodeBuilder.createNode();
-				theNode.readInputStream(is);
+			} else {
+				theNode = m_nodeBuilder.createNode(nodeType);
+				if(theNode != null) {
+					theNode.readInputStream(is);
 
-				list.add(theNode);
+					list.add(theNode);
+				}
 			}
 			if(parentIndex >= 0) {
 				Link link = (Link)list.get(parentIndex);
@@ -266,11 +268,7 @@ public class RTree implements StreamSerializable {
 				parentIndex = (Integer)hash.get(parentLink);
 			}
 			
-			if(node instanceof Link) {
-				IOUtil.writeByte(os,(byte)'L');
-			} else {//Node
-				IOUtil.writeByte(os,(byte)'N');
-			}
+			IOUtil.writeByte(os,node.getNodeTypeByte());
 			IOUtil.writeInt(os, parentIndex);
 			node.writeOutputStream(os);
 		}

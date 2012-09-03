@@ -25,7 +25,7 @@ import com.xtwsoft.utils.io.RTree;
 
 public class CarDataStore {
 	private RTree m_tree = null;
-	private Hashtable<String,RoadEnd> m_hash = new Hashtable<String,RoadEnd>();
+	private Hashtable m_hash = new Hashtable();
 
 	public CarDataStore(File file) {
 		try {
@@ -41,19 +41,28 @@ public class CarDataStore {
 	
     public void readInputStream(InputStream is) throws IOException {
 		m_tree = new RTree(new NodeBuilder() {
-			public Node createNode() {
-				return new CarRoad();
+			public Node createNode(byte nodeTypeByte) {
+				if(nodeTypeByte == 'P') {
+					return new POINode();
+				} else if(nodeTypeByte == 'R') {
+					return new CarRoadNode();
+				} 
+				return null;
 			}
 		});
 		m_tree.readInputStream(is);
 		m_tree.searchAll(new NodeLister() {
 			public void addNode(Node node) {
-				addCarRoad((CarRoad)node);
+				if(node.getNodeTypeByte() == 'R') {
+					addCarRoad((CarRoadNode)node);
+				} else if(node.getNodeTypeByte() == 'P') {
+					addPOINode((POINode)node);
+				}
 			}
 		});
     }
     
-	private void addCarRoad(CarRoad road) {
+	private void addCarRoad(CarRoadNode road) {
 		ArrayList ePosList = road.getEPosList();
 		
 		int orient = road.getOrient();
@@ -76,7 +85,14 @@ public class CarDataStore {
 			
 			re2.addLinker(new CarLinker(re1,len,time,road));
 		}
-		
+	}
+
+	private void addPOINode(POINode poiNode) {
+		m_hash.put(poiNode.getId(), poiNode);
+	}
+	
+	public POINode getPOINode(String poiNodeId) {
+		return (POINode)m_hash.get(poiNodeId);
 	}
 	
 	private RoadEnd createRoadEnd(EarthPos ePos) {
@@ -95,11 +111,11 @@ public class CarDataStore {
 	}
 
 	public RoadEnd getRoadEnd(int lat,int lon) {
-		return m_hash.get(lat + "," + lon);
+		return (RoadEnd)m_hash.get(lat + "," + lon);
 	}
 	
 	public RoadEnd getRoadEnd(EarthPos ePos) {
-		return m_hash.get(ePos.getILat() + "," + ePos.getILon());
+		return (RoadEnd)m_hash.get(ePos.getILat() + "," + ePos.getILon());
 	}
 
     public void writeOutputStream(OutputStream os) throws IOException {

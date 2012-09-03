@@ -13,7 +13,7 @@ import com.xtwsoft.utils.EarthPos;
 import com.xtwsoft.utils.gis.EarthPosLengthUtil;
 
 public class StartNode extends EndNode {
-	public StartNode(CarRoad carRoad,RoadEnd startPoint,int leftIndex,int rightIndex,CarDataStore carDataStore) {
+	public StartNode(CarRoadNode carRoad,RoadEnd startPoint,int leftIndex,int rightIndex,CarDataStore carDataStore) {
 		super(carRoad,startPoint,leftIndex,rightIndex,carDataStore);
 	}
 	
@@ -89,7 +89,7 @@ public class StartNode extends EndNode {
 	
 	//          ->->->->
 	//   |------>=======|		     =为目标点
-	protected void createLinkNodeForOrient1(ArrayList roadPosList,Hashtable pointNodeHash,CarRoad road) {
+	protected void createLinkNodeForOrient1(ArrayList roadPosList,Hashtable pointNodeHash,CarRoadNode road) {
 		EarthPos pZ = (EarthPos)roadPosList.get(roadPosList.size() - 1);
 		RoadEnd re = m_carDataStore.getRoadEnd(pZ);
 		if(re != null) {
@@ -121,7 +121,7 @@ public class StartNode extends EndNode {
 	
 	//    <-<-<-<-
 	//   |=======>------|		     =为目标点
-	protected void createLinkNodeForOrient2(ArrayList roadPosList,Hashtable posNodeHash,CarRoad road) {
+	protected void createLinkNodeForOrient2(ArrayList roadPosList,Hashtable posNodeHash,CarRoadNode road) {
 		EarthPos pA = (EarthPos)roadPosList.get(0);
 		RoadEnd re = m_carDataStore.getRoadEnd(pA);
 		if(re != null) {

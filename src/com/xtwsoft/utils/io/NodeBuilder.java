@@ -7,5 +7,5 @@
 package com.xtwsoft.utils.io;
 
 public interface NodeBuilder {
-	public Node createNode();
+	public Node createNode(byte nodeTypeByte);
 }

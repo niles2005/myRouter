@@ -16,12 +16,12 @@ import com.xtwsoft.utils.gis.EarthPosLengthUtil;
 public abstract class EndNode extends WorkNode {
 	protected int m_leftIndex = -1;
 	protected int m_rightIndex = -1;
-	protected CarRoad m_road = null;
+	protected CarRoadNode m_road = null;
 	
 	protected int m_orient = 0;
 	
 	protected CarDataStore m_carDataStore = null;
-	public EndNode(CarRoad carRoad,RoadEnd roadEnd,int leftIndex,int rightIndex,CarDataStore carDataStore) {
+	public EndNode(CarRoadNode carRoad,RoadEnd roadEnd,int leftIndex,int rightIndex,CarDataStore carDataStore) {
 		super(roadEnd);
 		m_road = carRoad;
 		m_leftIndex = leftIndex;
@@ -87,8 +87,8 @@ public abstract class EndNode extends WorkNode {
 	}
 
 	
-	protected abstract void createLinkNodeForOrient1(ArrayList roadPoints,Hashtable pointNodeHash,CarRoad road);
+	protected abstract void createLinkNodeForOrient1(ArrayList roadPoints,Hashtable pointNodeHash,CarRoadNode road);
 	
-	protected abstract void createLinkNodeForOrient2(ArrayList roadPoints,Hashtable pointNodeHash,CarRoad road);
+	protected abstract void createLinkNodeForOrient2(ArrayList roadPoints,Hashtable pointNodeHash,CarRoadNode road);
 	
 }

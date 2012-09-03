@@ -15,7 +15,7 @@ import com.xtwsoft.utils.EarthPos;
 
 public class Test1 {
 	public Test1() {
-		File routerDataFile = new File("test.rmd");
+		File routerDataFile = new File("D:\\mywork\\SHYT\\datas\\routeData\\test.rmd");
 		
 		if (!routerDataFile.exists()) {
 			return;
@@ -57,8 +57,12 @@ public class Test1 {
 //		EarthPos startEPos = new EarthPos(118.781371,32.040842);
 //		EarthPos endEPos = new EarthPos(118.7798713,32.0359184);
 
-		EarthPos startEPos = new EarthPos(121.4616381,31.2255070);
-		EarthPos endEPos = new EarthPos(121.4669817,31.2232933);
+//		EarthPos startEPos = new EarthPos(121.4616381,31.2255070);
+//		EarthPos endEPos = new EarthPos(121.4669817,31.2232933);
+
+		//含加油站POI
+		EarthPos startEPos = new EarthPos(1192996705,320534290);
+		EarthPos endEPos = new EarthPos(1202689001,316886222);
 		long t0 = System.currentTimeMillis();
 		RouteResult result = CarRouter.getInstance().doRoute(startEPos, endEPos, RouteUtil.RouteTypeLength);
 		

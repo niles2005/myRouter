@@ -15,7 +15,7 @@ public class RouteLine {
 		m_segmentList.add(segment);
 	}
 
-	public void buildJSONResult(StringBuffer strBuff,int index) {
+	public void buildJSONResult(StringBuffer strBuff) {
 		
 	}
 }

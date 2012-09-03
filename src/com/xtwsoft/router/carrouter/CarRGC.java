@@ -14,6 +14,7 @@ import com.xtwsoft.utils.EarthPos;
 import com.xtwsoft.utils.GlobalPos;
 import com.xtwsoft.utils.LinePosUtil;
 import com.xtwsoft.utils.gis.SutherlandHodgmanClip;
+import com.xtwsoft.utils.io.Node;
 
 //reverse geocoding
 public class CarRGC {
@@ -49,7 +50,7 @@ public class CarRGC {
 		double theRange = Range;
 		GlobalPos gPos = ePos.convert2GlobalPos();
 
-		CarRoad minCarRoad = null;
+		CarRoadNode minCarRoad = null;
 		int count = 0;
 		while(minCarRoad == null) {
 			double px1 = gPos.posX - theRange;
@@ -62,38 +63,44 @@ public class CarRGC {
 			List list = m_carDataStore.search(bounds);
 			
 			if(list.size() == 1) {
-				minCarRoad = (CarRoad)list.get(0);
+				Node node = (Node)list.get(0);
+				if(node instanceof CarRoadNode) {
+					minCarRoad = (CarRoadNode)node;
+				}
 				break;
 			}
 			
 			double minLen = Double.MAX_VALUE;
 			for(int i=0;i<list.size();i++) {
-				CarRoad road = (CarRoad)list.get(i);
-				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
-		        if(lineList != null && lineList.size() > 0) {
-		        	//原来是取最近的已有点
-//		        	for(int j=0;j<lineList.size();j++) {
-//		        		ArrayList points = (ArrayList)lineList.get(j);
-//		        		for(int k=0;k<points.size();k++) {
-//			        		Point p = (Point)points.get(k);
-//			        		double len = getLen(ePos,p.x,p.y);
-//			        		if(len < minLen) {
-//			        			minLen = len;
-//			        			minFeatureRf = featureRf;
-//			        			minPoint = p;
+				Node node = (Node)list.get(0);
+				if(node instanceof CarRoadNode) {
+					CarRoadNode road = (CarRoadNode)node;
+					ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
+			        if(lineList != null && lineList.size() > 0) {
+			        	//原来是取最近的已有点
+//			        	for(int j=0;j<lineList.size();j++) {
+//			        		ArrayList points = (ArrayList)lineList.get(j);
+//			        		for(int k=0;k<points.size();k++) {
+//				        		Point p = (Point)points.get(k);
+//				        		double len = getLen(ePos,p.x,p.y);
+//				        		if(len < minLen) {
+//				        			minLen = len;
+//				        			minFeatureRf = featureRf;
+//				        			minPoint = p;
+//				        		}
 //			        		}
-//		        		}
-//		        	}
-		        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
-		        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
-		        	if(theLPos != null) {
-		        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
-		        		if(len < minLen) {
-		        			minLen = len;
-		        			minCarRoad = road;
-		        		}
-		        	}
-		        }
+//			        	}
+			        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
+			        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
+			        	if(theLPos != null) {
+			        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
+			        		if(len < minLen) {
+			        			minLen = len;
+			        			minCarRoad = road;
+			        		}
+			        	}
+			        }
+				}
 			}
 			if(count >= 5) {
 				break;
@@ -112,7 +119,7 @@ public class CarRGC {
 		double theRange = Range;
 		GlobalPos gPos = ePos.convert2GlobalPos();
 
-		CarRoad minCarRoad = null;
+		CarRoadNode minCarRoad = null;
 		EarthPos minEPos = null;
 		int count = 0;
 		while(minCarRoad == null) {
@@ -126,33 +133,37 @@ public class CarRGC {
 			List list = m_carDataStore.search(bounds);
 			double minLen = Double.MAX_VALUE;
 			for(int i=0;i<list.size();i++) {
-				CarRoad road = (CarRoad)list.get(i);
-				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
-		        if(lineList != null && lineList.size() > 0) {
-		        	//原来是取最近的已有点
-//		        	for(int j=0;j<lineList.size();j++) {
-//		        		ArrayList points = (ArrayList)lineList.get(j);
-//		        		for(int k=0;k<points.size();k++) {
-//			        		Point p = (Point)points.get(k);
-//			        		double len = getLen(ePos,p.x,p.y);
-//			        		if(len < minLen) {
-//			        			minLen = len;
-//			        			minFeatureRf = featureRf;
-//			        			minPoint = p;
+				Node node = (Node)list.get(i);
+				if(node instanceof CarRoadNode) {
+					CarRoadNode road = (CarRoadNode)node;
+					ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
+			        if(lineList != null && lineList.size() > 0) {
+			        	//原来是取最近的已有点
+//			        	for(int j=0;j<lineList.size();j++) {
+//			        		ArrayList points = (ArrayList)lineList.get(j);
+//			        		for(int k=0;k<points.size();k++) {
+//				        		Point p = (Point)points.get(k);
+//				        		double len = getLen(ePos,p.x,p.y);
+//				        		if(len < minLen) {
+//				        			minLen = len;
+//				        			minFeatureRf = featureRf;
+//				        			minPoint = p;
+//				        		}
 //			        		}
-//		        		}
-//		        	}
-		        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
-		        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
-		        	if(theLPos != null) {
-		        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
-		        		if(len < minLen) {
-		        			minLen = len;
-		        			minCarRoad = road;
-		        			minEPos = theLPos;
-		        		}
-		        	}
-		        }
+//			        	}
+			        	//现在取最近的垂直点，如果垂点不在线段上，取最近的端点
+			        	EarthPos theLPos = LinePosUtil.getLPosInLineList(ePos, lineList);
+			        	if(theLPos != null) {
+			        		double len = getLen(ePos,theLPos.getILat(),theLPos.getILon());
+			        		if(len < minLen) {
+			        			minLen = len;
+			        			minCarRoad = road;
+			        			minEPos = theLPos;
+			        		}
+			        	}
+			        }
+				}
+				
 			}
 			if(count >= 5) {
 				break;
@@ -167,7 +178,7 @@ public class CarRGC {
 		double theRange = Range;
 		GlobalPos gPos = ePos.convert2GlobalPos();
 
-		CarRoad minCarRoad = null;
+		CarRoadNode minCarRoad = null;
 		
 //		minLEndEPoints 为EarthPos[3],分别为leftEndPoint,LPoint,rightEndPoint
 		//因为SutherlandHodgmanClip的原因，可能剪切数据中没有road的真实点(比如剪切范围里没有road的点)
@@ -187,33 +198,36 @@ public class CarRGC {
 			List list = m_carDataStore.search(bounds);
 			double minLen = Double.MAX_VALUE;
 			for(int i=0;i<list.size();i++) {
-				CarRoad road = (CarRoad)list.get(i);
-				ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
-		        if(lineList != null && lineList.size() > 0) {
-		        	//原来是取最近的已有点
-//		        	for(int j=0;j<lineList.size();j++) {
-//		        		ArrayList points = (ArrayList)lineList.get(j);
-//		        		for(int k=0;k<points.size();k++) {
-//			        		Point p = (Point)points.get(k);
-//			        		double len = getLen(ePos,p.x,p.y);
-//			        		if(len < minLen) {
-//			        			minLen = len;
-//			        			minFeatureRf = featureRf;
-//			        			minPoint = p;
+				Node node = (Node)list.get(i);
+				if(node instanceof CarRoadNode) {
+					CarRoadNode road = (CarRoadNode)node;
+					ArrayList lineList = SutherlandHodgmanClip.clipLine(road.getEPosList(), bounds);
+			        if(lineList != null && lineList.size() > 0) {
+			        	//原来是取最近的已有点
+//			        	for(int j=0;j<lineList.size();j++) {
+//			        		ArrayList points = (ArrayList)lineList.get(j);
+//			        		for(int k=0;k<points.size();k++) {
+//				        		Point p = (Point)points.get(k);
+//				        		double len = getLen(ePos,p.x,p.y);
+//				        		if(len < minLen) {
+//				        			minLen = len;
+//				        			minFeatureRf = featureRf;
+//				        			minPoint = p;
+//				        		}
 //			        		}
-//		        		}
-//		        	}
-		        	//现在取最近的垂直点及两端，如果垂点不在线段上，取最近的端点（LEnd，L & 2End 为三点,L 居中）
-		        	EarthPos[] theLEndEPoses = LinePosUtil.getLEndPosInLineList(ePos, lineList);
-		        	if(theLEndEPoses != null && theLEndEPoses[1] != null) {
-		        		double len = getLen(ePos,theLEndEPoses[1].getILat(),theLEndEPoses[1].getILon());
-		        		if(len < minLen) {
-		        			minLen = len;
-		        			minCarRoad = road;
-		        			minLEndEPoses = theLEndEPoses;
-		        		}
-		        	}
-		        }
+//			        	}
+			        	//现在取最近的垂直点及两端，如果垂点不在线段上，取最近的端点（LEnd，L & 2End 为三点,L 居中）
+			        	EarthPos[] theLEndEPoses = LinePosUtil.getLEndPosInLineList(ePos, lineList);
+			        	if(theLEndEPoses != null && theLEndEPoses[1] != null) {
+			        		double len = getLen(ePos,theLEndEPoses[1].getILat(),theLEndEPoses[1].getILon());
+			        		if(len < minLen) {
+			        			minLen = len;
+			        			minCarRoad = road;
+			        			minLEndEPoses = theLEndEPoses;
+			        		}
+			        	}
+			        }
+				}
 			}
 			if(count >= 5) {
 				break;

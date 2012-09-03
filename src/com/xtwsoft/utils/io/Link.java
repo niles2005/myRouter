@@ -22,11 +22,13 @@ public class Link extends Node {
 	protected Node[] m_nodes;
 
 	protected Link(int maxLinkEntries, boolean isLeaf) {
+		super((byte)'L');
 		this.m_nodes = new Node[maxLinkEntries + 1];
 		this.m_isLeaf = isLeaf;
 	}
 
 	protected Link() {
+		super((byte)'L');
 	}
 
 	protected void addNode(Node node) {

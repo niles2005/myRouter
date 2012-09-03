@@ -14,10 +14,10 @@ public class CarLinker {
 	public RoadEnd m_roadEnd;
 	public int m_linkLen;
 	public int m_linkTime;
-	public CarRoad m_road;
+	public CarRoadNode m_road;
 	
 	public CarLinker m_nextLinker = null;
-	public CarLinker(RoadEnd roadEnd,int linkLen,int linkTime,CarRoad road) {
+	public CarLinker(RoadEnd roadEnd,int linkLen,int linkTime,CarRoadNode road) {
 		m_roadEnd = roadEnd;
 		m_linkLen = linkLen;
 		m_linkTime = linkTime;
@@ -35,7 +35,7 @@ public class CarLinker {
 
 	//此Temp PosList为End节点处切分的线段点，如果此值为空，则取road的PosList
 	private ArrayList m_tempPosList;
-	public CarLinker(RoadEnd roadEnd,int linkLen,int linkTime,CarRoad road,ArrayList tempPosList) {
+	public CarLinker(RoadEnd roadEnd,int linkLen,int linkTime,CarRoadNode road,ArrayList tempPosList) {
 		m_roadEnd = roadEnd;
 		m_linkLen = linkLen;
 		m_linkTime = linkTime;

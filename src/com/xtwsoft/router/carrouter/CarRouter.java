@@ -82,7 +82,7 @@ public class CarRouter {
 				
 				if(currNode == stopNode) {
 					RouteLine routeLine = buildRouteLine(currNode,routeType);
-					routeResult.addRouteLine(routeLine);
+					routeResult.setRouteLine(routeLine);
 					break;
 				}
 				
@@ -109,7 +109,7 @@ public class CarRouter {
 			workNodeList.addFirst(usedNode);
 			usedNode = usedNode.getRoutePrevNode();
 		}
-		return new CarRouteLine(routeType,workNodeList);
+		return new CarRouteLine(m_carDataStore,routeType,workNodeList);
 	}
 	
 }
