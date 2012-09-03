@@ -17,7 +17,7 @@ import com.xtwsoft.router.carrouter.CarRouter;
 public class InitServlet extends HttpServlet {
 	public void init(ServletConfig servletConfig) throws ServletException {
 		try {
-			// System.err.println("init...");
+			// System.err.println("init......");
 			String realPath = servletConfig.getServletContext().getRealPath("");
 			File routeDataFile = new File(realPath, "sh.rmd");
 			if (routeDataFile.exists()) {
